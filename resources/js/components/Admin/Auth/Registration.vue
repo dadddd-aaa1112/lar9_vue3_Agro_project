@@ -20,6 +20,13 @@
                 <label class="form-label">Password confirm</label>
                 <input type="password" v-model="password_confirmed" class="form-control" placeholder="Password confirm">
             </div>
+
+            <select v-model="role" class="mb-3 form-select">
+                <option disabled>Select role</option>
+                <option value="1">Admin</option>
+                <option value="2">User</option>
+            </select>
+
             <div class="d-flex justify-content-center">
                 <button @click.prevent="registerUser" class="btn btn-outline-primary">Registration</button>
             </div>
@@ -30,11 +37,13 @@
 <script setup>
 import axios from 'axios'
 import {ref} from 'vue'
+import router from "../../../router";
 
 const email = ref('')
 const name = ref('')
 const password = ref('')
 const password_confirmed = ref('')
+const role = ref(null)
 
 const registerUser = () => {
     axios.get('/sanctum/csrf-cookie').then(response => {
@@ -42,10 +51,12 @@ const registerUser = () => {
             name: name.value,
             email: email.value,
             password: password.value,
-            password_confirmation: password_confirmed.value
+            password_confirmation: password_confirmed.value,
+            role: role.value
         })
             .then(res => {
-              console.log(res)
+
+              console.log(role.value)
             })
     })
 }

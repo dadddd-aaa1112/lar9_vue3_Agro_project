@@ -14,6 +14,8 @@
                 <input v-model="password" type="password" class="form-control" placeholder="Password">
             </div>
 
+
+
             <div class="d-flex justify-content-center">
                 <button @click.prevent="loginUser" class="btn btn-outline-primary">Login</button>
             </div>
@@ -30,11 +32,13 @@ import router from "../../../router";
 const email = ref('')
 const password = ref('')
 
+
 const loginUser = () => {
     axios.get('/sanctum/csrf-cookie').then(response => {
         axios.post('/login', {
             email: email.value,
-            password: password.value
+            password: password.value,
+
         })
             .then(r => {
                 localStorage.setItem('x_xsrf_token', r.config.headers['X-XSRF-TOKEN'])

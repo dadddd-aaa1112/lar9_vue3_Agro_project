@@ -17,8 +17,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $guarded = false;
+    protected $fillable = [
+        'name', 'email', 'password', 'role'
+    ];
     protected $table = 'users';
+
+    const ROLE_ADMIN = 1;
+    const ROLE_USERS = 2;
+
+    public static function getRoles() {
+        return [
+            self::ROLE_ADMIN => 'admin',
+            self::ROLE_USERS => 'user'
+        ];
+    }
 
     /**
      * The attributes that should be hidden for serialization.

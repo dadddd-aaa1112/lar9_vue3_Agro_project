@@ -22,7 +22,7 @@
         </style>
     </head>
    <div id="app">
-       <app></app>
+
        <button type="submit" class="btn btn-primary">Submit</button>
        <button type="submit" class="btn btn-danger">Submit</button>
    </div>

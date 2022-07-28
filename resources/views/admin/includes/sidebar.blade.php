@@ -21,7 +21,7 @@
               <a href="{{route('admin.client.index')}}" class="nav-link">
                   <i class="nav-icon far fa-image"></i>
                   <p>
-                      Client
+                      Клиенты
                   </p>
               </a>
           </li>
@@ -30,7 +30,7 @@
               <a href="{{route('admin.culture.index')}}" class="nav-link">
                   <i class="nav-icon far fa-image"></i>
                   <p>
-                      Culture
+                      Культуры
                   </p>
               </a>
           </li>
@@ -39,7 +39,7 @@
               <a href="{{route('admin.fertilizer.index')}}" class="nav-link">
                   <i class="nav-icon far fa-image"></i>
                   <p>
-                      Fertilizer
+                      Удобрения
                   </p>
               </a>
           </li>
@@ -48,7 +48,7 @@
               <a href="{{route('admin.user.index')}}" class="nav-link">
                   <i class="nav-icon far fa-image"></i>
                   <p>
-                      User
+                      Пользователи
                   </p>
               </a>
           </li>

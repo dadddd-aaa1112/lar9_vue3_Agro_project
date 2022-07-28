@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         $users = User::all();
+
+        if ($request->has('view_deleted')) {
+            $users = User::onlyTrashed()->get();
+        }
+
         return view('admin.user.index', compact('users'));
     }
 }

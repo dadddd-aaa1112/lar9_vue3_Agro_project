@@ -13,4 +13,5 @@ class Client extends Model
 
     protected $guarded = false;
     protected $table = 'clients';
+    protected $dates = ['deleted_at'];
 }

@@ -13,4 +13,5 @@ class Fertilizer extends Model
 
     protected $guarded = false;
     protected $table = 'fertilizers';
+    protected $dates = ['deleted_at'];
 }

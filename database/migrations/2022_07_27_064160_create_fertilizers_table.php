@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('norm_fosfor');
             $table->float('norm_kalii');
 
-            $table->foreignId('culture_id')->index()->constrained('cultures');
+            $table->foreignId('culture_id')->default(null)->index()->constrained('cultures')->onDelete('cascade');
 
             $table->text('raion');
             $table->float('cost');

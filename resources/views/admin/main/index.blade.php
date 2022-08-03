@@ -10,7 +10,7 @@
         <!-- Main content -->
 
                 <!-- Small boxes (Stat box) -->
-                <div class="row">
+                <div class="row p-3">
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info">
@@ -86,17 +86,6 @@
 
         <!-- /.content -->
 
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
-        </div>
-    </footer>
 
-    <!-- Control Sidebar -->
-
-    <!-- /.control-sidebar -->
 
 @endsection

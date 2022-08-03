@@ -1,5 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Культуры</h3>
     <div class="d-flex justify-content-between">
         <a href="{{route('admin.culture.index')}}">
             on main page

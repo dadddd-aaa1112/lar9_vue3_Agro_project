@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
-
+<h3>Клиенты</h3>
     <form action="{{route('admin.client.store')}}" method="post">
        @csrf
         <div class="mb-3">

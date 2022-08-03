@@ -1,11 +1,12 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Клиенты</h3>
     <div class="d-flex justify-content-between">
         <a href="{{route('admin.client.index')}}">
-            on main page
+            На главную страницу
         </a>
         <a href="{{route('admin.client.edit', $client->id)}}">
-            edit
+            Редактировать
         </a>
 
             @include('admin.client.delete.destroy')

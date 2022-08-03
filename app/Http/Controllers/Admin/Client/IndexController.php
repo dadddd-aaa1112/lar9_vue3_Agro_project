@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $clients = Client::all();
+        $clients = Client::sortable()->get();
 
         if ($request->has('view_deleted')) {
             $clients = Client::onlyTrashed()->get();

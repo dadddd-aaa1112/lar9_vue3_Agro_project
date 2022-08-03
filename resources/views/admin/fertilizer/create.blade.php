@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
-
+    <h3>Удобрения</h3>
     <form action="{{route('admin.fertilizer.store')}}" method="post">
         @csrf
         <div class="mb-3">

@@ -1,5 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Пользователи</h3>
     <div class="mb-3 d-flex justify-content-between w-50">
         @if(request()->has('view_deleted'))
             <a href="{{route('admin.user.index')}}">Посмотреть все</a>

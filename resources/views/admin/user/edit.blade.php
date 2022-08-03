@@ -1,7 +1,8 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Пользователи</h3>
     <a href="{{route('admin.user.index')}}">
-        on main page
+        На главную страницу
     </a>
 
     <form action="{{route('admin.user.update', $user->id)}}" method="post">

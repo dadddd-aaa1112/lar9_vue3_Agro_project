@@ -1,7 +1,8 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Удобрения</h3>
     <a href="{{route('admin.fertilizer.index')}}">
-        on main page
+        На главную страницу
     </a>
 
 

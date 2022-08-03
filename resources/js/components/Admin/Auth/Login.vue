@@ -41,7 +41,7 @@ const loginUser = () => {
 
         })
             .then(r => {
-                localStorage.setItem('x_xsrf_token', r.config.headers['X-XSRF-TOKEN'])
+                 localStorage.setItem('x_xsrf_token', r.config.headers['X-XSRF-TOKEN'])
                  router.push('/admin/get')
                 console.log(r)
             })

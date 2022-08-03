@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $fertilizers = Fertilizer::all();
+        $fertilizers = Fertilizer::sortable()->get();
         $cultures = Culture::all();
 
         if ($request->has('view_deleted')) {

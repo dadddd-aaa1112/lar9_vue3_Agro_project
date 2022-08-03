@@ -19,7 +19,7 @@ import {ref, onMounted, onUpdated} from 'vue';
 const logoutUser = () => {
     axios.post('/logout')
         .then(res => {
-            localStorage.removeItem('x_xsrf_token')
+             localStorage.removeItem('x_xsrf_token')
             router.push('/admin/login')
         })
 }

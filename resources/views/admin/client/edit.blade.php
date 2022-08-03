@@ -1,7 +1,8 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Клиенты</h3>
     <a href="{{route('admin.client.index')}}">
-        on main page
+        На главную страницу
     </a>
 
     <form action="{{route('admin.client.update', $client->id)}}" method="post">

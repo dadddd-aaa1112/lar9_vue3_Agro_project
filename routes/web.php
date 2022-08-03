@@ -13,12 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', \App\Http\Controllers\MainController::class)->name('welcome');
+
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', \App\Http\Controllers\Admin\Main\MainController::class);
+    Route::get('/', \App\Http\Controllers\Admin\Main\MainController::class)->name('admin');
 
     Route::group(['prefix' => 'fertilizers'], function() {
         Route::get('/{fertilizer}/restore', [ \App\Http\Controllers\Admin\Fertilizer\RestoreController::class,'restoreData'])->name('admin.fertilizer.restore');
@@ -74,10 +73,5 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Auth::routes();
-
 Route::get('{page}', \App\Http\Controllers\MainController::class)->where('page', '.*');
 
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

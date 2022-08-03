@@ -1,5 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Удобрения</h3>
     <div class="w-50 mb-3 d-flex justify-content-between">
         @if(request()->has('view_deleted'))
             <a href="{{route('admin.fertilizer.index')}}">Посмотреть все</a>
@@ -14,7 +15,7 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Наименование</th>
+            <th scope="col">@sortablelink('title', 'Наименование')</th>
 
             <th scope="col">Действия</th>
 

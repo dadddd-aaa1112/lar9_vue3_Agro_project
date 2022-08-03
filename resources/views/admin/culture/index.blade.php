@@ -1,5 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Культуры</h3>
     <div class="mb-3 w-50 d-flex justify-content-between">
         @if(request()->has('view_deleted'))
             <a href="{{route('admin.culture.index')}}">Посмотреть все</a>

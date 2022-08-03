@@ -1,11 +1,12 @@
 @extends('admin.layouts.main')
 @section('content')
+    <h3>Пользователи</h3>
     <div class="d-flex justify-content-between">
         <a href="{{route('admin.user.index')}}">
-            on main page
+            На главную страницу
         </a>
         <a href="{{route('admin.user.edit', $user->id)}}">
-            edit
+            Редактировать
         </a>
 
         @include('admin.user.delete.destroy')

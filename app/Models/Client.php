@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,4 +20,8 @@ class Client extends Model
     protected $dates = ['deleted_at'];
 
     public $sortable = ['title', 'cost'];
+
+    public function scopeFilter(Builder $builder, QueryFilter $filter) {
+        return $filter->apply($builder);
+    }
 }

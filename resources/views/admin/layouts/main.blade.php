@@ -49,10 +49,10 @@
         <!-- ./wrapper -->
         <section class="content">
             <div class="container-fluid ">
-<div class="pt-1">
+                <div class="pt-2">
 
-                @yield('content')
-</div>
+                    @yield('content')
+                </div>
             </div>
         </section>
 

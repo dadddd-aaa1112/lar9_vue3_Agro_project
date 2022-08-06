@@ -9,15 +9,15 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">norm_azot</label>
-            <input type="number" step="0.01" class="form-control" value="{{old('norm_azot')}}" placeholder="norm_azot" name="norm_azot">
+            <input type="number" step="any" class="form-control" value="{{old('norm_azot')}}" placeholder="norm_azot" name="norm_azot">
         </div>
         <div class="mb-3">
             <label  class="form-label">norm_fosfor</label>
-            <input type="number" step="0.01" class="form-control" value="{{old('norm_fosfor')}}" placeholder="norm_fosfor" name="norm_fosfor">
+            <input type="number" step="any" class="form-control" value="{{old('norm_fosfor')}}" placeholder="norm_fosfor" name="norm_fosfor">
         </div>
         <div class="mb-3">
             <label  class="form-label">norm_kalii</label>
-            <input type="number" step="0.01" class="form-control" value="{{old('norm_kalii')}}" placeholder="norm_kalii" name="norm_kalii">
+            <input type="number" step="any" class="form-control" value="{{old('norm_kalii')}}" placeholder="norm_kalii" name="norm_kalii">
         </div>
         <div class="mb-3">
             <label  class="form-label">culture_id</label>
@@ -39,7 +39,7 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">cost</label>
-            <input type="number" step="0.01" class="form-control" value="{{old('cost')}}" placeholder="cost" name="cost">
+            <input type="number" step="any" class="form-control" value="{{old('cost')}}" placeholder="cost" name="cost">
         </div>
         <div class="mb-3">
             <label  class="form-label">description</label>

@@ -8,6 +8,31 @@
         @else
             <a href="{{route('admin.user.create')}}">Создать</a>
             <a href="{{route('admin.user.index', ['view_deleted' => 'DeletedRecords'])}}">Посмотреть удаленные</a>
+
+            @if(session('status'))
+                <div class="alert alert-info">
+                    {{session('status')}}
+                </div>
+            @endif
+
+            <form action="{{route('admin.user.excel')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputFile">Загрузить Excel файл</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="user_excel">
+                            <label class="custom-file-label"></label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Выбрать файл</span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Загрузка</button>
+
+            </form>
+
         @endif
     </div>
     <table class="table table-secondary table-striped">

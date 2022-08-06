@@ -1,15 +1,50 @@
 @extends('admin.layouts.main')
 @section('content')
     <h3>Культуры</h3>
-    <div class="mb-3 w-50 d-flex justify-content-between">
+
         @if(request()->has('view_deleted'))
             <a href="{{route('admin.culture.index')}}">Посмотреть все</a>
             <a href="{{route('admin.culture.restore_all')}}">Восстановить все</a>
         @else
-            <a href="{{route('admin.culture.create')}}">Создать</a>
-            <a href="{{route('admin.culture.index', ['view_deleted' => 'DeletedRecords'])}}">Посмотреть удаленные</a>
+            <div class="d-flex flex-row justify-content-between mb-3">
+                <div class="d-flex flex-column">
+                    <a href="{{route('admin.culture.create')}}">Создать</a>
+                    <a href="{{route('admin.culture.index', ['view_deleted' => 'DeletedRecords'])}}">Посмотреть
+                        удаленные</a>
+
+                </div>
+                <div class="d-flex flex-column">
+
+
+                    @if(session('status'))
+                        <div class="alert alert-info">
+                            {{session('status')}}
+                        </div>
+                    @endif
+
+                    <form action="{{route('admin.culture.excel')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Загрузить Excel файл</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="excel_culture">
+                                    <label class="custom-file-label "></label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Выбрать файл</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit">Загрузка</button>
+
+                    </form>
+                </div>
+
+            </div>
         @endif
-    </div>
+
     <table class="table table-secondary table-striped">
         <thead>
         <tr>

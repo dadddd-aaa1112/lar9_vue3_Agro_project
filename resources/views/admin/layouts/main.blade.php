@@ -75,6 +75,7 @@
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
 <script>
     $(document).ready(function () {
         $('#summernote').summernote({
@@ -93,6 +94,12 @@
         bsCustomFileInput.init();
     });
 </script>
+<style>
+    .custom-file-input:lang(en)~.custom-file-label::after {
+        content: "...";
+        cursor: pointer;
+    }
+</style>
 
 </body>
 </html>

@@ -16,8 +16,9 @@ class FertilizerImport implements ToCollection, WithHeadingRow
     {
 
         foreach ($collection as $item) {
+
             if ($item->filter()->isNotEmpty()) {
-                Fertilizer::firstOrCreate([
+                Fertilizer::create([
                     'title' => $item['naimenovanie'],
                     'norm_azot' => $item['norma_azot'],
                     'norm_fosfor' => $item['norma_fosfor'],
@@ -30,5 +31,8 @@ class FertilizerImport implements ToCollection, WithHeadingRow
                 ]);
             }
         }
+
+
     }
+
 }

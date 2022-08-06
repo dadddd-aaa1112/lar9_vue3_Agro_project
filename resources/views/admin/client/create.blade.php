@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">cost</label>
-            <input type="number" step="0.01" class="form-control" value="{{old('cost')}}" placeholder="cost" name="cost">
+            <input type="number" step="any" class="form-control" value="{{old('cost')}}" placeholder="cost" name="cost">
         </div>
         <div class="mb-3">
             <label  class="form-label">region</label>

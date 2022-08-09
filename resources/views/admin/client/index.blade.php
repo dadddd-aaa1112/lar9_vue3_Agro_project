@@ -76,6 +76,7 @@
                                     @else
                                         <td><a href="{{route('admin.client.edit',$client->id )}}">Редактировать</a></td>
                                         <td>@include('admin.client.delete.destroy')</td>
+                                        <td><a class="btn btn-outline-primary" href="{{route('admin.client.dogovor', $client->id)}}">Сформировать договор</a></td>
                                     @endif
                                 </tr>
                             @endforeach

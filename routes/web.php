@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     Route::group(['prefix' => 'clients'], function() {
+        Route::get('/dogovor/{id}', \App\Http\Controllers\Admin\Client\DogovorController::class)->name('admin.client.dogovor');
         Route::get('/export_excel', \App\Http\Controllers\Admin\Client\ExportController::class)->name('admin.client.export');
         Route::post('/import_excel', \App\Http\Controllers\Admin\Client\ImportExcelController::class)->name('admin.client.excel');
         Route::get('/{client}/restore', [\App\Http\Controllers\Admin\Client\RestoreController::class, 'restoreData'])->name('admin.client.restore');

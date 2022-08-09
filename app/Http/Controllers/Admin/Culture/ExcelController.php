@@ -17,7 +17,7 @@ class ExcelController extends Controller
         $filePath = Storage::disk('public')->put('/files', $file);
         ImportExcelCultureJob::dispatch($filePath);
 
-        return redirect()->route('admin.culture.index')->with('status', 'загрузка данных');
+        return redirect()->route('admin.culture.index');
 
 
     }

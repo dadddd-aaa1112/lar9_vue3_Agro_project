@@ -25,6 +25,13 @@ class ExcelRequest extends FormRequest
     {
         return [
             'user_excel' => 'required|file',
-                   ];
+        ];
+    }
+
+    public function messages() {
+        return [
+            'user_excel.required' => 'Необходимо выбрать Excel файл',
+            'user_excel.file' => 'Необходимо выбрать Excel файл',
+        ];
     }
 }

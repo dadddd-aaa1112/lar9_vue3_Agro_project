@@ -9,11 +9,13 @@
             <a href="{{route('admin.user.create')}}">Создать</a>
             <a href="{{route('admin.user.index', ['view_deleted' => 'DeletedRecords'])}}">Посмотреть удаленные</a>
 
-            @if(session('status'))
-                <div class="alert alert-info">
-                    {{session('status')}}
-                </div>
-            @endif
+        <form action="{{route('admin.user.export')}}" method="get">
+            <button type="submit" class="btn btn-outline-success">Сохранить данные в Excel</button>
+        </form>
+        @endif
+
+
+
 
             <form action="{{route('admin.user.excel')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -33,7 +35,7 @@
 
             </form>
 
-        @endif
+
     </div>
     <table class="table table-secondary table-striped">
         <thead>
@@ -59,4 +61,8 @@
             </tr>
         @endforeach
     </table>
+    @if(request()->has('view_deleted'))
+    @else
+        {{$users->links()}}
+    @endif
 @endsection

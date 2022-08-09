@@ -16,6 +16,10 @@
                                 <a href="{{route('admin.fertilizer.create')}}">Создать</a>
                                 <a href="{{route('admin.fertilizer.index', ['view_deleted' => 'DeletedRecords'])}}">Посмотреть
                                     удаленные</a>
+
+                                <form action="{{ route('admin.fertilizer.export')}}" method="get">
+                                    <button type="submit" class="btn btn-outline-success">Сохранить Excel файл</button>
+                                </form>
                             @endif
                         </div>
                         <table class="table table-dark table-striped">
@@ -66,7 +70,11 @@
                             @endforeach
                             </tbody>
                         </table>
+                        @if(request()->has('view_deleted'))
+
+                        @else
                         {{$fertilizers->withQueryString()->links()}}
+                        @endif
                     </div>
                     @if(request()->has('view_deleted'))
 

@@ -27,4 +27,12 @@ class ExcelRequest extends FormRequest
             'excel_client' => 'required|file'
         ];
     }
+
+    public function messages() {
+        return [
+            'excel_client.required' => 'Необходимо выбрать Excel файл',
+            'excel_client.file' => 'Необходимо выбрать Excel файл'
+        ];
+    }
 }
+

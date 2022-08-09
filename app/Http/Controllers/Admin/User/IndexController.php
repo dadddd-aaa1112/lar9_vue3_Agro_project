@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $users = User::all();
+        $users = User::paginate(10);
 
         if ($request->has('view_deleted')) {
             $users = User::onlyTrashed()->get();

@@ -27,4 +27,11 @@ class ExcelRequest extends FormRequest
             'excel_fertilizer' => 'required|file'
         ];
     }
+
+    public function messages() {
+        return [
+            'excel_fertilizer.required' => 'Необходимо выбрать Excel файл',
+            'excel_fertilizer.file' => 'Необходимо выбрать Excel файл',
+        ];
+    }
 }

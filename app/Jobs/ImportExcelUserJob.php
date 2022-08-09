@@ -32,6 +32,8 @@ private $filePath;
      */
     public function handle()
     {
+        $readerType = check_extends_file_job($this->filePath);
+
         Excel::import(new UserImport,
             $this->filePath,
             'public',

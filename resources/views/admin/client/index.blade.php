@@ -1,5 +1,27 @@
 @extends('admin.layouts.main')
 @section('content')
+    @if(session('status'))
+        @if(session('status') == 'finished')
+            <div class="alert alert-default-success">
+                Данные загружены успешно
+            </div>
+        @else
+            <div class="alert alert-default-danger">
+                Ошибка при загрузке
+            </div>
+        @endif
+    @endif
+
+    @if($errors->any())
+        <div class="alert alert-default-danger">
+            <h5 class="text-danger"> Ошибки при загрузке: </h5>
+            <ol>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ol>
+        </div>
+    @endif
 
     <h3>Клиенты</h3>
     <div class="d-flex ">
@@ -19,6 +41,11 @@
                                 </a>
                                 <a href="{{route('admin.client.index', ['view_deleted' => 'DeletedRecords'])}}">Посмотреть
                                     удаленные </a>
+
+                                <form action="{{route('admin.client.export')}}" method="get">
+                                    <button class="btn btn-outline-success" type="submit">Сохранить данные в Excel
+                                    </button>
+                                </form>
                             @endif
                         </div>
                         <table class="table table-dark table-striped">
@@ -60,27 +87,23 @@
                         <div class="w-25 mt-4">
                             <div class="d-flex flex-column">
 
-                                @if(session('status'))
-                                    <div class="alert alert-info">
-                                        {{session('status')}}
-                                    </div>
-                                @endif
 
-                                <form class="mb-3" action="{{route('admin.client.excel')}}" method="post" enctype="multipart/form-data">
+                                <form class="mb-3" action="{{route('admin.client.excel')}}" method="post"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="exampleInputFile">Загрузить Excel файл</label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="excel_client">
-                                                <label class="custom-file-label" ></label>
+                                                <label class="custom-file-label"></label>
                                             </div>
                                             <div class="input-group-append">
-                                                <span  class="input-group-text">Выбрать файл</span>
+                                                <span class="input-group-text">Выбрать файл</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" >Загрузка</button>
+                                    <button type="submit">Загрузка</button>
                                 </form>
 
                                 <form action="{{route('admin.client.index')}}" method="get">
@@ -177,5 +200,9 @@
                     @endif
 
             </div>
-    {{$clients->withQueryString()->links()}}
+
+    @if(request()->has('view_deleted'))
+    @else
+        {{$clients->withQueryString()->links()}}
+    @endif
 @endsection

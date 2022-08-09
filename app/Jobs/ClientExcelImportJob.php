@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\ImportStatusExcel;
 use App\Imports\ClientImport;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -24,7 +25,7 @@ class ClientExcelImportJob implements ShouldQueue
      */
     public function __construct($fileExcelPath)
     {
-        //
+
         $this->fileExcelPath = $fileExcelPath;
     }
 
@@ -36,6 +37,20 @@ class ClientExcelImportJob implements ShouldQueue
     public function handle()
     {
 
-        Excel::import(new ClientImport(), $this->fileExcelPath, 'public');
+        //$readerType = check_extends_file_job($this->fileExcelPath);
+
+        try {
+
+
+        Excel::import(new ClientImport,
+            $this->fileExcelPath,
+            'public',
+            \Maatwebsite\Excel\Excel::XLSX);
+        } catch (\Exception $ex) {
+            return back()->withError('something wrong');
+        }
+
+        return redirect()->route('admin.client.index')->withMessage('success');
+
     }
 }

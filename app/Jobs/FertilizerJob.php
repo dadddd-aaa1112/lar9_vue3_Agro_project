@@ -33,7 +33,11 @@ class FertilizerJob implements ShouldQueue
      */
     public function handle()
     {
+        $readerType = check_extends_file_job($this->filePath);
 
-       Excel::import(new FertilizerImport, $this->filePath, 'public', \Maatwebsite\Excel\Excel::XLSX);
+       Excel::import(new FertilizerImport,
+           $this->filePath,
+           'public',
+           \Maatwebsite\Excel\Excel::XLSX);
     }
 }

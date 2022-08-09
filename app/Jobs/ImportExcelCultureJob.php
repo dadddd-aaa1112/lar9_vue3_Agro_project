@@ -36,6 +36,9 @@ class ImportExcelCultureJob implements ShouldQueue
     public function handle()
     {
         ini_set('memory_limit', '-1');
+
+        $readerType = check_extends_file_job($this->filePath);
+
         Excel::import(new CultureImport,
             $this->filePath,
             'public',
